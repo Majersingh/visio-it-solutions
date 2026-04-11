@@ -1,0 +1,165 @@
+"use client";
+
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/cn";
+import { nav, site } from "@/lib/site";
+
+const apple = [0.16, 1, 0.3, 1] as const;
+
+export function SiteNav() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <>
+      <header className="rise-in fixed inset-x-0 top-0 z-50">
+        <div className="container-wide pt-3 md:pt-4">
+          <div
+            className={cn(
+              "relative flex h-14 items-center justify-between rounded-full px-4 md:h-16 md:px-6 transition-all duration-500",
+              scrolled
+                ? "glass-strong"
+                : "border border-white/[0.06] bg-white/[0.03] backdrop-blur-md",
+            )}
+          >
+            <Link
+              href="/"
+              className="group flex items-center gap-2.5"
+              aria-label={site.name}
+            >
+              <LogoMark />
+              <span className="t-body font-semibold tracking-tight text-white md:text-[17px]">
+                Visio<span className="text-white/60">IT</span>
+              </span>
+            </Link>
+
+            <nav className="hidden items-center gap-1 md:flex">
+              {nav.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-full px-4 py-2 text-[14px] font-medium text-white/70 transition-colors duration-200 hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="hidden md:flex">
+              <a
+                href="#contact"
+                className="btn-primary inline-flex h-10 items-center rounded-full px-5 text-[14px] font-medium text-white"
+              >
+                Talk to an engineer
+              </a>
+            </div>
+
+            <button
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="flex h-11 w-11 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 md:hidden"
+            >
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: apple }}
+            className="fixed inset-0 z-40 md:hidden"
+          >
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-2xl" />
+            <motion.nav
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.05, delayChildren: 0.1 } },
+              }}
+              className="relative flex h-full flex-col justify-between px-6 pb-10 pt-24"
+            >
+              <ul className="flex flex-col gap-2">
+                {nav.map((item) => (
+                  <motion.li
+                    key={item.href}
+                    variants={{
+                      hidden: { opacity: 0, y: 16 },
+                      visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: apple } },
+                    }}
+                  >
+                    <a
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-2xl px-4 py-5 text-[22px] font-medium tracking-tight text-white"
+                    >
+                      {item.label}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+              <motion.a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                variants={{
+                  hidden: { opacity: 0, y: 16 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: apple } },
+                }}
+                className="btn-primary inline-flex h-14 w-full items-center justify-center rounded-full text-[17px] font-medium text-white"
+              >
+                Talk to an engineer
+              </motion.a>
+            </motion.nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
+
+function LogoMark() {
+  return (
+    <span className="relative flex h-8 w-8 items-center justify-center rounded-[10px] bg-gradient-to-br from-[#1a88ff] via-[#0071e3] to-[#7c3aed] shadow-[inset_0_1px_0_rgba(255,255,255,0.35)]">
+      <span className="absolute inset-0 rounded-[10px] ring-1 ring-white/20" />
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+        className="relative h-4 w-4 text-white"
+      >
+        <path
+          fill="currentColor"
+          d="M12 3.2 2.8 8.6V12c0 4.9 3.9 8.1 9.2 9.3 5.3-1.2 9.2-4.4 9.2-9.3V8.6L12 3.2Zm0 2.3 7.2 4.2V12c0 3.7-2.9 6.2-7.2 7.2C7.7 18.2 4.8 15.7 4.8 12V9.7L12 5.5Z"
+        />
+        <circle cx="12" cy="12" r="2.2" fill="currentColor" />
+      </svg>
+    </span>
+  );
+}
