@@ -3,9 +3,9 @@ export const site = {
   shortName: "Visio IT",
   domain: "visioitsolutions.com",
   url: "https://visioitsolutions.com",
-  phone: "+91 63558 85240",
-  whatsapp: "916355885240", // digits only — used for wa.me links
-  whatsappDisplay: "+91 63558 85240",
+  phone: "+91 95375 94397",
+  whatsapp: "919537594397", // digits only — used for wa.me links
+  whatsappDisplay: "+91 95375 94397",
   email: "support@visioitsolutions.com",
   address: "A/102 Dove Deck - NRS Projects, Opp. Pioneer Medical College, Near American School of Baroda, Ajwa Rd, Vadodara, Gujarat 390019",
   tagline: "Infrastructure that never sleeps.",

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site, services } from "@/lib/site";
 
@@ -8,16 +9,14 @@ export function SiteFooter() {
       <div className="container-x py-16 md:py-20">
         <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
-            <Link href="/" className="flex items-center gap-2.5">
-              <span className="relative flex h-8 w-8 items-center justify-center rounded-[10px] bg-gradient-to-br from-[#1a88ff] via-[#0071e3] to-[#7c3aed]">
-                <svg viewBox="0 0 24 24" className="h-4 w-4 text-white">
-                  <path
-                    fill="currentColor"
-                    d="M12 3.2 2.8 8.6V12c0 4.9 3.9 8.1 9.2 9.3 5.3-1.2 9.2-4.4 9.2-9.3V8.6L12 3.2Zm0 2.3 7.2 4.2V12c0 3.7-2.9 6.2-7.2 7.2C7.7 18.2 4.8 15.7 4.8 12V9.7L12 5.5Z"
-                  />
-                  <circle cx="12" cy="12" r="2.2" fill="currentColor" />
-                </svg>
-              </span>
+            <Link href="/" className="flex items-center gap-2">
+              <Image
+                src="/visiologo.png"
+                alt={site.name}
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-lg object-contain"
+              />
               <span className="t-body font-semibold tracking-tight">
                 Visio<span className="text-white/60">IT</span>
               </span>

@@ -22,17 +22,22 @@ export function Hero() {
       ref={ref}
       className="relative isolate overflow-hidden pb-16 pt-36 md:pt-44 lg:pb-28 lg:pt-52"
     >
-      {/* Background image with overlays */}
-      <div className="absolute inset-0 -z-20" aria-hidden>
-        <Image
-          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop"
-          alt=""
-          fill
-          priority
-          className="object-cover opacity-35"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
+      {/* Background image — 3D perspective rotation like viewing Earth from space */}
+      <div className="absolute inset-0 -z-20 flex items-center justify-center overflow-hidden" aria-hidden style={{ perspective: "1200px" }}>
+        <div className="hero-globe relative h-[140%] w-[140%] shrink-0 rounded-full overflow-hidden">
+          <Image
+            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+            sizes="140vw"
+          />
+        </div>
+      </div>
+      <div className="absolute inset-0 -z-[15]" aria-hidden>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_50%,transparent_30%,black_75%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black" />
       </div>
 
       <motion.div

@@ -69,7 +69,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: { icon: "/favicon.ico" },
+  icons: {
+    icon: "/visiologo.png",
+    shortcut: "/visiologo.png",
+    apple: "/visiologo.png",
+  },
   category: "technology",
 };
 
