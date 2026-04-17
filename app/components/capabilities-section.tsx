@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { capabilities } from "@/lib/site";
 import { Reveal, Stagger, StaggerItem } from "./reveal";
 
@@ -22,6 +23,25 @@ export function CapabilitiesSection() {
             </p>
           </Reveal>
         </div>
+
+        <Reveal className="mb-8 overflow-hidden rounded-[24px]">
+          <div className="relative h-56 w-full md:h-72">
+            <Image
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1400&q=80&auto=format&fit=crop"
+              alt="Modern office with engineers collaborating on infrastructure"
+              fill
+              sizes="(min-width:1200px) 1200px, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8">
+              <p className="t-caption mb-2 !text-white/70">Built different</p>
+              <p className="text-[18px] font-medium text-white">
+                The tools, discipline, and SLAs of a tech company — as a managed service.
+              </p>
+            </div>
+          </div>
+        </Reveal>
 
         <Stagger
           className="grid grid-cols-1 gap-px overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.02] md:grid-cols-2 lg:grid-cols-3"

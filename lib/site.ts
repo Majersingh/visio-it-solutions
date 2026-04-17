@@ -7,7 +7,7 @@ export const site = {
   whatsapp: "916355885240", // digits only — used for wa.me links
   whatsappDisplay: "+91 63558 85240",
   email: "support@visioitsolutions.com",
-  address: "Delhi, India",
+  address: "A/102 Dove Deck - NRS Projects, Opp. Pioneer Medical College, Near American School of Baroda, Ajwa Rd, Vadodara, Gujarat 390019",
   tagline: "Infrastructure that never sleeps.",
   description:
     "Enterprise IT support, network engineering, and 24/7 NOC & SOC operations — engineered for uptime, designed for resilience.",

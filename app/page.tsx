@@ -21,7 +21,10 @@ const orgJsonLd = {
   logo: `${site.url}/favicon.ico`,
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Delhi",
+    streetAddress: "A/102 Dove Deck - NRS Projects, Opp. Pioneer Medical College, Near American School of Baroda, Ajwa Rd",
+    addressLocality: "Vadodara",
+    addressRegion: "Gujarat",
+    postalCode: "390019",
     addressCountry: "IN",
   },
   sameAs: [] as string[],

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowRight, Activity, Shield } from "lucide-react";
@@ -19,8 +20,21 @@ export function Hero() {
   return (
     <section
       ref={ref}
-      className="hero-mesh noise relative isolate overflow-hidden pb-16 pt-36 md:pt-44 lg:pb-28 lg:pt-52"
+      className="relative isolate overflow-hidden pb-16 pt-36 md:pt-44 lg:pb-28 lg:pt-52"
     >
+      {/* Background image with overlays */}
+      <div className="absolute inset-0 -z-20" aria-hidden>
+        <Image
+          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80&auto=format&fit=crop"
+          alt=""
+          fill
+          priority
+          className="object-cover opacity-35"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
+      </div>
+
       <motion.div
         style={{ y: blobY }}
         aria-hidden

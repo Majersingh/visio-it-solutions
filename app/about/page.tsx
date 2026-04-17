@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PageShell, PageHeader } from "../components/page-shell";
 import { Reveal, Stagger } from "../components/reveal";
 import { stats, capabilities, site } from "@/lib/site";
@@ -56,6 +57,21 @@ export default function AboutPage() {
                 </div>
               ))}
             </dl>
+          </div>
+        </Reveal>
+      </section>
+
+      <section className="container-x pb-16 md:pb-20">
+        <Reveal>
+          <div className="relative mx-auto h-64 max-w-[1000px] overflow-hidden rounded-[24px] md:h-[380px]">
+            <Image
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80&auto=format&fit=crop"
+              alt="Team collaborating around a conference table"
+              fill
+              sizes="(min-width:1024px) 1000px, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           </div>
         </Reveal>
       </section>

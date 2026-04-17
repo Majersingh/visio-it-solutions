@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Activity, Cpu, Globe, Lock, Wifi, Zap } from "lucide-react";
 import { Reveal } from "./reveal";
 
