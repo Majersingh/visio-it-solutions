@@ -428,10 +428,10 @@ html.js [data-reveal-x]:not(.is-visible) {
 .orbit-slow { animation: orbit 40s linear infinite; }
 .orbit-rev { animation: orbit 60s linear infinite reverse; }
 
-/* Hero globe — 3D tilt + clockwise spin viewed from above */
+/* Hero globe — gentle tilt + clockwise spin, circular feel */
 @keyframes globe-spin {
-  0%   { transform: perspective(1200px) rotateX(60deg) rotateZ(0deg) scale(1.35); }
-  100% { transform: perspective(1200px) rotateX(60deg) rotateZ(360deg) scale(1.35); }
+  0%   { transform: perspective(1200px) rotateX(35deg) rotateZ(0deg) scale(1.35); }
+  100% { transform: perspective(1200px) rotateX(35deg) rotateZ(360deg) scale(1.35); }
 }
 .hero-globe {
   animation: globe-spin 90s linear infinite !important;
