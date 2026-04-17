@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/cn";
@@ -31,6 +31,11 @@ export function SiteNav() {
       document.body.style.overflow = "";
     };
   }, [open]);
+
+  const closeMobile = useCallback(() => {
+    setOpen(false);
+    document.body.style.overflow = "";
+  }, []);
 
   return (
     <>
@@ -64,23 +69,23 @@ export function SiteNav() {
 
             <nav className="hidden items-center gap-1 md:flex">
               {nav.map((item) => (
-                <a
+                <Link
                   key={item.href}
                   href={item.href}
                   className="rounded-full px-4 py-2 text-[14px] font-medium text-white/70 transition-colors duration-200 hover:text-white"
                 >
                   {item.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
             <div className="hidden md:flex">
-              <a
-                href="#contact"
+              <Link
+                href="/#contact"
                 className="btn-primary inline-flex h-10 items-center rounded-full px-5 text-[14px] font-medium text-white"
               >
                 Talk to an engineer
-              </a>
+              </Link>
             </div>
 
             <button
@@ -124,27 +129,23 @@ export function SiteNav() {
                       visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: apple } },
                     }}
                   >
-                    <a
+                    <Link
                       href={item.href}
-                      onClick={() => setOpen(false)}
+                      onClick={closeMobile}
                       className="block rounded-2xl px-4 py-5 text-[22px] font-medium tracking-tight text-white"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>
-              <motion.a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                variants={{
-                  hidden: { opacity: 0, y: 16 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: apple } },
-                }}
-                className="btn-primary inline-flex h-14 w-full items-center justify-center rounded-full text-[17px] font-medium text-white"
+              <Link
+                href="/#contact"
+                onClick={closeMobile}
+                className="btn-primary inline-flex h-16 w-full items-center justify-center rounded-full px-8 py-5 text-[17px] font-medium text-white"
               >
                 Talk to an engineer
-              </motion.a>
+              </Link>
             </motion.nav>
           </motion.div>
         )}

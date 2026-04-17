@@ -27,6 +27,11 @@
   color-scheme: dark;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
 html,
 body {
   background: #000000;
@@ -258,7 +263,17 @@ body {
 }
 
 .section-pad {
-  padding-block: clamp(72px, 12vw, 160px);
+  padding-block: clamp(80px, 12vw, 160px);
+}
+
+@media (max-width: 640px) {
+  .section-pad {
+    padding-block: 72px;
+  }
+  .container-x,
+  .container-wide {
+    padding-inline: 20px;
+  }
 }
 
 /* CSS-only entry animations (run regardless of JS) */
