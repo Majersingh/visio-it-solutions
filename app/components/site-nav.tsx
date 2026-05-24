@@ -142,7 +142,7 @@ export function SiteNav() {
               <Link
                 href="/#contact"
                 onClick={closeMobile}
-                className="btn-primary inline-flex h-16 w-full items-center justify-center rounded-full px-8 py-5 text-[17px] font-medium text-white"
+                className="btn-primary inline-flex h-16 w-full items-center justify-center rounded-full px-8 py-2 text-[17px] font-medium text-white"
               >
                 Talk to an engineer
               </Link>

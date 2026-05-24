@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function RevealRuntime() {
+  const pathname = usePathname();
+
   useEffect(() => {
     const els = Array.from(
       document.querySelectorAll<HTMLElement>("[data-reveal], [data-reveal-x]"),
@@ -29,9 +32,11 @@ export function RevealRuntime() {
       { rootMargin: "-10% 0px -10% 0px", threshold: 0.05 },
     );
 
-    els.forEach((el) => io.observe(el));
+    els.forEach((el) => {
+      if (!el.classList.contains("is-visible")) io.observe(el);
+    });
     return () => io.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }
