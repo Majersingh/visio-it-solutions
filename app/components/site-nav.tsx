@@ -67,22 +67,22 @@ export function SiteNav() {
               </span>
             </Link>
 
-            <nav className="hidden items-center gap-1 md:flex">
+            <nav className="hidden items-center gap-1 lg:flex">
               {nav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-full px-4 py-2 text-[14px] font-medium text-white/70 transition-colors duration-200 hover:text-white"
+                  className="whitespace-nowrap rounded-full px-3.5 py-2 text-[15px] font-medium text-white/70 transition-colors duration-200 hover:text-white lg:text-[16px]"
                 >
                   {item.label}
                 </Link>
               ))}
             </nav>
 
-            <div className="hidden md:flex">
+            <div className="hidden lg:flex">
               <Link
                 href="/#contact"
-                className="btn-primary inline-flex h-10 items-center rounded-full px-5 text-[14px] font-medium text-white"
+                className="btn-primary inline-flex h-10 items-center rounded-full px-5 text-[15px] font-medium text-white"
               >
                 Talk to an engineer
               </Link>
@@ -92,7 +92,7 @@ export function SiteNav() {
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
-              className="flex h-11 w-11 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 md:hidden"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/10 lg:hidden"
             >
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>

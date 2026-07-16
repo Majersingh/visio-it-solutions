@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { site, services } from "@/lib/site";
+import { site, services, softwareSolutions } from "@/lib/site";
 
 export function SiteFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="relative border-t border-white/[0.08] bg-[#030303]">
       <div className="container-x py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>
             <Link href="/" className="flex items-center gap-2">
               <Image
@@ -35,7 +35,19 @@ export function SiteFooter() {
             ))}
           </FooterColumn>
 
+          <FooterColumn title="Software">
+            {softwareSolutions.map((s) => (
+              <FooterLink
+                key={s.slug}
+                href={`/software-solutions/${s.slug}`}
+              >
+                {s.name}
+              </FooterLink>
+            ))}
+          </FooterColumn>
+
           <FooterColumn title="Company">
+            <FooterLink href="/software-solutions">Software Solutions</FooterLink>
             <FooterLink href="/about">About</FooterLink>
             <FooterLink href="/#operations">Operations</FooterLink>
             <FooterLink href="/#faq">FAQ</FooterLink>

@@ -2,13 +2,14 @@ import { SiteNav } from "./components/site-nav";
 import { Hero } from "./components/hero";
 import { TrustStrip } from "./components/trust-strip";
 import { ServicesSection } from "./components/services-section";
+import { SoftwareSolutionsSection } from "./components/software-solutions-section";
 import { CapabilitiesSection } from "./components/capabilities-section";
 import { OperationsSection } from "./components/operations-section";
 import { FaqSection } from "./components/faq-section";
 import { CtaSection } from "./components/cta-section";
 import { SiteFooter } from "./components/site-footer";
 import { WhatsAppFab } from "./components/whatsapp-fab";
-import { site, services, faqs } from "@/lib/site";
+import { site, services, faqs, softwareSolutions } from "@/lib/site";
 
 const orgJsonLd = {
   "@context": "https://schema.org",
@@ -39,6 +40,19 @@ const orgJsonLd = {
   })),
 };
 
+const softwareSolutionsJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Software Solutions by Visio IT Solutions",
+  itemListElement: softwareSolutions.map((s, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: s.name,
+    url: `${site.url}/software-solutions/${s.slug}`,
+    description: s.summary,
+  })),
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -58,6 +72,10 @@ export default function Page() {
       />
       <script
         type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSolutionsJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
       <SiteNav />
@@ -65,6 +83,7 @@ export default function Page() {
         <Hero />
         <TrustStrip />
         <ServicesSection />
+        <SoftwareSolutionsSection />
         <CapabilitiesSection />
         <OperationsSection />
         <FaqSection />

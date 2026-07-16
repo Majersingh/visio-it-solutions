@@ -49,7 +49,8 @@ export const faqs = [
 ] as const;
 
 export const nav = [
-  { label: "Services", href: "/#services" },
+  { label: "IT Services", href: "/#services" },
+  { label: "Software Solutions", href: "/software-solutions" },
   { label: "Operations", href: "/#operations" },
   { label: "FAQ", href: "/#faq" },
   { label: "About", href: "/about" },
@@ -177,3 +178,471 @@ export const capabilities = [
     body: "From 50 seats to 50,000. Our run-books, tooling, and hiring pipeline were designed around growth.",
   },
 ] as const;
+
+export type SoftwareSolution = {
+  slug: string;
+  name: string;
+  title: string;
+  tagline: string;
+  /** Short one-liner used on cards and meta descriptions. */
+  summary: string;
+  /** Longer intro paragraphs for the dedicated page. */
+  overview: readonly string[];
+  /** Quick capability bullets shown on cards. */
+  highlights: readonly string[];
+  /** Detailed feature blocks for the dedicated page. */
+  features: readonly { title: string; body: string }[];
+  /** Who the product is built for. */
+  audience: readonly string[];
+  icon:
+    | "school"
+    | "erp"
+    | "visitor"
+    | "hrms"
+    | "code"
+    | "cart"
+    | "workflow";
+  image: { src: string; alt: string };
+  keywords: readonly string[];
+};
+
+export const softwareSolutions: readonly SoftwareSolution[] = [
+  {
+    slug: "school-management-system",
+    name: "School Management System",
+    title: "Run the whole school from one system.",
+    tagline: "Admissions to report cards — every workflow, one platform.",
+    summary:
+      "A cloud school management system that unifies admissions, attendance, fees, exams, timetables, and parent communication in one place.",
+    overview: [
+      "Our School Management System (SMS) replaces the tangle of spreadsheets, registers, and disconnected apps that most institutions run on. Administrators, teachers, students, and parents each get a role-based portal, so everyone sees exactly what they need — and nothing they don't.",
+      "Built for schools, colleges, and coaching institutes, the platform scales from a single campus to multi-branch groups. It runs in the cloud with automated backups, so there is nothing to install and nothing to lose.",
+    ],
+    highlights: [
+      "Online admissions & student information system",
+      "Biometric / RFID attendance with parent alerts",
+      "Automated fee collection, invoicing & receipts",
+      "Exam, grading & report-card automation",
+    ],
+    features: [
+      {
+        title: "Admissions & enrolment",
+        body: "Online application forms, document collection, merit lists, and one-click enrolment that flows straight into the student record.",
+      },
+      {
+        title: "Attendance & timetable",
+        body: "Biometric, RFID, or app-based attendance with instant SMS/WhatsApp alerts to parents, plus a clash-free timetable builder.",
+      },
+      {
+        title: "Fees & finance",
+        body: "Configurable fee heads, online payment gateways, auto-reminders, receipts, and real-time collection dashboards for accounts.",
+      },
+      {
+        title: "Exams & report cards",
+        body: "Grade books, CBSE/ICSE/state-board templates, weighted assessments, and printable report cards generated in seconds.",
+      },
+      {
+        title: "Parent & teacher portals",
+        body: "Mobile apps and web portals for homework, circulars, results, and two-way messaging that keeps parents in the loop.",
+      },
+      {
+        title: "Transport & library",
+        body: "GPS bus tracking, route management, and a full library issue-return catalogue baked into the same system.",
+      },
+    ],
+    audience: [
+      "K-12 schools & CBSE/ICSE institutions",
+      "Colleges & universities",
+      "Coaching & tuition centres",
+      "Multi-branch education groups",
+    ],
+    icon: "school",
+    image: {
+      src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80&auto=format&fit=crop",
+      alt: "Students collaborating in a modern classroom",
+    },
+    keywords: [
+      "school management system",
+      "school management software",
+      "student information system",
+      "school ERP",
+      "online school administration software",
+    ],
+  },
+  {
+    slug: "erp",
+    name: "ERP Software",
+    title: "One ERP for the whole business.",
+    tagline: "Finance, inventory, sales, and operations — finally in sync.",
+    summary:
+      "Custom ERP software that connects finance, inventory, sales, procurement, and manufacturing into a single real-time source of truth.",
+    overview: [
+      "Our ERP (Enterprise Resource Planning) platform ties every department to one database, so a sale updates inventory, accounting, and dispatch the moment it happens. No re-keying, no reconciliation nightmares, no month-end surprises.",
+      "We tailor modules to how your business actually runs — whether that's manufacturing, distribution, retail, or services — and deploy on the cloud or on-premise with role-based access and audit trails throughout.",
+    ],
+    highlights: [
+      "Real-time finance & accounting ledger",
+      "Inventory, procurement & warehouse control",
+      "Sales, CRM & order-to-cash workflows",
+      "Production planning & GST-ready reporting",
+    ],
+    features: [
+      {
+        title: "Finance & accounting",
+        body: "General ledger, payables, receivables, bank reconciliation, and GST/tax-compliant invoicing with real-time P&L and balance sheets.",
+      },
+      {
+        title: "Inventory & warehouse",
+        body: "Multi-warehouse stock, batch and serial tracking, reorder points, and barcode-driven goods-in/goods-out control.",
+      },
+      {
+        title: "Sales & CRM",
+        body: "Quotations, sales orders, dispatch, and a built-in CRM so pipeline, orders, and revenue all live in one place.",
+      },
+      {
+        title: "Procurement",
+        body: "Purchase requisitions, vendor management, PO approvals, and three-way matching that stops over-payment before it happens.",
+      },
+      {
+        title: "Manufacturing",
+        body: "Bill of materials, work orders, production planning, and shop-floor tracking with accurate costing per unit.",
+      },
+      {
+        title: "Dashboards & analytics",
+        body: "Role-based dashboards and drill-down reports that turn transactional data into decisions leadership can act on.",
+      },
+    ],
+    audience: [
+      "Manufacturers & distributors",
+      "Wholesale & retail chains",
+      "Trading & import-export firms",
+      "Growing SMEs outgrowing spreadsheets",
+    ],
+    icon: "erp",
+    image: {
+      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80&auto=format&fit=crop",
+      alt: "Business analytics dashboard with charts and metrics",
+    },
+    keywords: [
+      "ERP software",
+      "enterprise resource planning",
+      "custom ERP development",
+      "ERP for manufacturing",
+      "cloud ERP solution",
+    ],
+  },
+  {
+    slug: "visitor-management-system",
+    name: "Visitor Management System",
+    title: "Every visitor, logged and secured.",
+    tagline: "Paperless check-in, instant host alerts, full audit trail.",
+    summary:
+      "A digital visitor management system with self-service check-in, ID capture, host notifications, and a complete visitor audit trail.",
+    overview: [
+      "Replace the paper visitor register with a fast, contactless check-in kiosk. Visitors sign in on a tablet, capture a photo and ID, accept your policies, and print a badge — while the host is notified instantly by SMS, email, or WhatsApp.",
+      "Every entry and exit is time-stamped and searchable, giving security and facilities teams a complete, exportable audit trail for compliance and emergency roll-calls.",
+    ],
+    highlights: [
+      "Contactless self-service kiosk check-in",
+      "Photo & ID capture with badge printing",
+      "Instant host notifications",
+      "Pre-registration & QR-code fast entry",
+    ],
+    features: [
+      {
+        title: "Self-service kiosk",
+        body: "Tablet or kiosk check-in with your branding, custom fields, and multi-language support for a professional first impression.",
+      },
+      {
+        title: "Host notifications",
+        body: "The moment a visitor arrives, their host gets an instant alert via SMS, email, or WhatsApp with the visitor's photo and purpose.",
+      },
+      {
+        title: "Pre-registration & QR",
+        body: "Invite guests in advance; they arrive with a QR code that clears them in seconds — ideal for interviews and scheduled meetings.",
+      },
+      {
+        title: "Badges & ID capture",
+        body: "Capture a live photo and scan government ID, then auto-print a time-bound visitor badge for clear on-site identification.",
+      },
+      {
+        title: "Watchlist & compliance",
+        body: "Screen against blocklists, capture NDAs and safety declarations on sign-in, and stay audit-ready by design.",
+      },
+      {
+        title: "Reports & evacuation",
+        body: "Real-time on-site headcount, exportable logs, and a one-tap evacuation list for emergency roll-calls.",
+      },
+    ],
+    audience: [
+      "Corporate offices & IT parks",
+      "Factories & warehouses",
+      "Schools, hospitals & clinics",
+      "Gated communities & co-working spaces",
+    ],
+    icon: "visitor",
+    image: {
+      src: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&q=80&auto=format&fit=crop",
+      alt: "Modern office reception and check-in area",
+    },
+    keywords: [
+      "visitor management system",
+      "visitor management software",
+      "digital visitor check-in",
+      "reception management system",
+      "gate pass system",
+    ],
+  },
+  {
+    slug: "hrms",
+    name: "HRMS & Payroll",
+    title: "HR and payroll on autopilot.",
+    tagline: "Hire, manage, pay — the whole employee lifecycle in one app.",
+    summary:
+      "A complete HRMS covering attendance, leave, payroll, performance, and self-service across the full employee lifecycle.",
+    overview: [
+      "Our HRMS (Human Resource Management System) automates the paperwork that eats up HR teams — from onboarding a new hire to running error-free payroll on the last day of the month. Employees get a self-service portal for leave, payslips, and documents, so HR stops being a helpdesk.",
+      "Attendance, leave, and payroll are tightly integrated, so approved leave and clocked hours flow straight into salary calculation with statutory PF, ESI, TDS, and professional-tax handled automatically.",
+    ],
+    highlights: [
+      "Attendance & leave management",
+      "Automated payroll with PF/ESI/TDS",
+      "Employee self-service portal & app",
+      "Performance reviews & onboarding",
+    ],
+    features: [
+      {
+        title: "Core HR & onboarding",
+        body: "A single employee database with digital onboarding, document management, and configurable org structure and policies.",
+      },
+      {
+        title: "Attendance & leave",
+        body: "Biometric, geo-fenced, and app-based attendance with shift management and a rules-driven leave workflow.",
+      },
+      {
+        title: "Payroll & compliance",
+        body: "One-click payroll with automatic PF, ESI, TDS, and professional tax, plus payslips and statutory reports ready to file.",
+      },
+      {
+        title: "Employee self-service",
+        body: "Staff apply for leave, download payslips, update details, and raise requests from a mobile-friendly self-service portal.",
+      },
+      {
+        title: "Performance & appraisals",
+        body: "Goals, KPIs, 360° reviews, and appraisal cycles that give managers a clear, fair basis for decisions.",
+      },
+      {
+        title: "Expenses & assets",
+        body: "Reimbursement claims with approvals and asset allocation tracking, all tied back to the employee record.",
+      },
+    ],
+    audience: [
+      "Startups & scaling SMEs",
+      "IT & services companies",
+      "Manufacturing & field workforces",
+      "Any team tired of manual payroll",
+    ],
+    icon: "hrms",
+    image: {
+      src: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1200&q=80&auto=format&fit=crop",
+      alt: "HR team collaborating in a bright office",
+    },
+    keywords: [
+      "HRMS software",
+      "HR management system",
+      "payroll software",
+      "attendance and leave management",
+      "employee self-service portal",
+    ],
+  },
+  {
+    slug: "custom-software-development",
+    name: "Custom Software Development",
+    title: "Software built around your business.",
+    tagline: "Web, mobile, and cloud apps engineered to fit — not force-fit.",
+    summary:
+      "Bespoke web, mobile, and cloud application development — from discovery and UX to build, launch, and ongoing support.",
+    overview: [
+      "When off-the-shelf software can't model how you actually work, we build it for you. From internal tools and customer portals to full SaaS products, our engineers design, build, and ship applications tailored to your exact workflows.",
+      "We work in tight, transparent sprints with modern stacks — React, Next.js, Node, and cloud-native infrastructure — so you see working software early and own clean, documented code at the end.",
+    ],
+    highlights: [
+      "Web & mobile app development",
+      "SaaS product & MVP engineering",
+      "API integration & legacy modernisation",
+      "UI/UX design and prototyping",
+    ],
+    features: [
+      {
+        title: "Discovery & UX",
+        body: "We start with your problem, not a feature list — mapping workflows, wireframing, and prototyping before a line of code is written.",
+      },
+      {
+        title: "Web applications",
+        body: "Fast, scalable web apps and dashboards built with React, Next.js, and modern back-ends, deployed on resilient cloud infrastructure.",
+      },
+      {
+        title: "Mobile apps",
+        body: "Native-quality iOS and Android apps from a single codebase, with offline support and store submission handled for you.",
+      },
+      {
+        title: "APIs & integrations",
+        body: "We connect your tools — payment gateways, ERPs, CRMs, and third-party APIs — into one coherent system.",
+      },
+      {
+        title: "Cloud & DevOps",
+        body: "CI/CD pipelines, containerised deployments, and observability so your software ships safely and stays up.",
+      },
+      {
+        title: "Support & scale",
+        body: "Post-launch maintenance, feature iteration, and performance tuning under a clear SLA as your product grows.",
+      },
+    ],
+    audience: [
+      "Startups building an MVP or SaaS",
+      "Enterprises modernising legacy apps",
+      "Teams needing bespoke internal tools",
+      "Businesses integrating disparate systems",
+    ],
+    icon: "code",
+    image: {
+      src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80&auto=format&fit=crop",
+      alt: "Software development team working together",
+    },
+    keywords: [
+      "custom software development",
+      "bespoke software development company",
+      "web application development",
+      "mobile app development",
+      "SaaS product development",
+    ],
+  },
+  {
+    slug: "ecommerce",
+    name: "Ecommerce Solutions",
+    title: "Storefronts that sell around the clock.",
+    tagline: "High-converting online stores, built to scale and integrate.",
+    summary:
+      "End-to-end ecommerce development — online stores, marketplaces, payments, and inventory built for conversion and scale.",
+    overview: [
+      "We design and build online stores that load fast, look premium, and convert visitors into customers. Whether you need a Shopify build, a headless commerce experience, or a fully custom marketplace, we handle catalogue, checkout, payments, and shipping end to end.",
+      "Every store is integrated with your inventory, accounting, and marketing stack, so orders flow automatically and you spend time growing — not copying data between systems.",
+    ],
+    highlights: [
+      "Custom & headless storefronts",
+      "Secure multi-gateway checkout",
+      "Inventory, orders & shipping sync",
+      "SEO, speed & conversion optimisation",
+    ],
+    features: [
+      {
+        title: "Storefront design",
+        body: "Conversion-focused, mobile-first storefronts with premium UX — custom-built or on Shopify, WooCommerce, or a headless stack.",
+      },
+      {
+        title: "Payments & checkout",
+        body: "Frictionless, secure checkout with multiple gateways, UPI, wallets, cards, and one-click and guest checkout options.",
+      },
+      {
+        title: "Catalogue & inventory",
+        body: "Rich product catalogues, variants, and real-time stock sync with your ERP or POS so you never oversell.",
+      },
+      {
+        title: "Marketplaces",
+        body: "Multi-vendor marketplace platforms with seller onboarding, commissions, and payouts handled end to end.",
+      },
+      {
+        title: "Marketing & SEO",
+        body: "Technical SEO, structured data, coupons, abandoned-cart recovery, and analytics wired in from day one.",
+      },
+      {
+        title: "Fulfilment & shipping",
+        body: "Courier integrations, real-time rates, order tracking, and returns management that keep customers informed.",
+      },
+    ],
+    audience: [
+      "Retail & D2C brands",
+      "Wholesalers going online",
+      "Multi-vendor marketplaces",
+      "Businesses replatforming for scale",
+    ],
+    icon: "cart",
+    image: {
+      src: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80&auto=format&fit=crop",
+      alt: "Online shopping and ecommerce checkout on a laptop",
+    },
+    keywords: [
+      "ecommerce development",
+      "ecommerce website development",
+      "online store development",
+      "Shopify development",
+      "marketplace development",
+    ],
+  },
+  {
+    slug: "workflow-automation",
+    name: "Workflow Automation",
+    title: "Automate the busywork away.",
+    tagline: "Turn manual, repetitive processes into reliable workflows.",
+    summary:
+      "Business process and workflow automation that connects your apps, eliminates manual data entry, and enforces approvals.",
+    overview: [
+      "Every business runs on repetitive tasks — copying data between apps, chasing approvals, sending the same emails. We identify those bottlenecks and automate them, so your team spends time on work that actually needs a human.",
+      "From no-code workflow builders to fully custom automation and integrations, we connect the tools you already use and layer on approvals, notifications, and audit trails — reducing errors and freeing up hours every week.",
+    ],
+    highlights: [
+      "App-to-app integration & data sync",
+      "Approval & document workflows",
+      "Automated notifications & reminders",
+      "Custom triggers, rules & dashboards",
+    ],
+    features: [
+      {
+        title: "Process mapping",
+        body: "We map your current process, find the friction, and design an automation that removes manual steps without breaking what works.",
+      },
+      {
+        title: "App integrations",
+        body: "Connect CRMs, ERPs, spreadsheets, email, and hundreds of SaaS tools so data flows automatically between systems.",
+      },
+      {
+        title: "Approval workflows",
+        body: "Multi-stage approvals for purchases, leave, expenses, and documents — with escalation, reminders, and a full audit trail.",
+      },
+      {
+        title: "Document automation",
+        body: "Auto-generate quotes, invoices, contracts, and reports from your data, then route them for e-signature.",
+      },
+      {
+        title: "Notifications & alerts",
+        body: "Trigger SMS, email, and WhatsApp alerts on the events that matter, so nothing falls through the cracks.",
+      },
+      {
+        title: "RPA & scheduled jobs",
+        body: "Bots and scheduled tasks that handle recurring work — reconciliations, exports, and reporting — around the clock.",
+      },
+    ],
+    audience: [
+      "Ops & finance teams drowning in manual work",
+      "Companies stitching together many SaaS tools",
+      "Businesses standardising approvals",
+      "Teams scaling without adding headcount",
+    ],
+    icon: "workflow",
+    image: {
+      src: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80&auto=format&fit=crop",
+      alt: "Team reviewing an automated business process on screen",
+    },
+    keywords: [
+      "workflow automation",
+      "business process automation",
+      "process automation software",
+      "approval workflow software",
+      "RPA solutions",
+    ],
+  },
+] as const;
+
+export function getSoftwareSolution(slug: string) {
+  return softwareSolutions.find((s) => s.slug === slug);
+}
